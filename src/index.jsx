@@ -2,13 +2,30 @@ import React from 'react';
 import {registerRoot,Composition,AbsoluteFill,interpolate,useCurrentFrame,useVideoConfig,spring} from 'remotion';
 const navy='#0F1B3D',orange='#FF6B35',gold='#F5C451';
 const scenes=[
-{start:0,end:15,title:'MEXAY DIGITAL',sub:'Fikirlerinize dijital bir görünüm kazandıralım.',tag:'DİJİTAL ÇÖZÜMLER'},
-{start:15,end:35,title:'MARKA KİMLİĞİ',sub:'Logolar, kartvizitler ve kurumsal tasarımlar.',tag:'LOGO • BRANDING'},
-{start:35,end:55,title:'SOSYAL MEDYA',sub:'Markanızı öne çıkaran yaratıcı görseller.',tag:'POST • BANNER • REELS'},
-{start:55,end:75,title:'AKILLI EXCEL',sub:'Gelir, gider, satış ve stoklarınız tek ekranda.',tag:'DASHBOARD • ANALİZ'},
-{start:75,end:95,title:'WEB TASARIM',sub:'Mobil uyumlu, modern ve etkileyici web siteleri.',tag:'WEB • MOBİL'},
-{start:95,end:110,title:'VİDEO İÇERİK',sub:'Ürünlerinizi anlatan etkileyici kısa videolar.',tag:'MOTION • REKLAM'},
-{start:110,end:120,title:'BİRLİKTE ÜRETELİM',sub:'Projenizi anlatın: mexaydigital@gmail.com',tag:'MEXAY DIGITAL'}
+{start:0,end:5,title:"MEXAY DIGITAL",sub:"Fikirlerinize dijital görünüm",tag:"DİJİTAL ÇÖZÜMLER"},
+{start:5,end:10,title:"MARKANIZI BÜYÜTÜN",sub:"Profesyonel tasarımla öne çıkın",tag:"MARKA"},
+{start:10,end:15,title:"LOGO TASARIMI",sub:"Akılda kalan özgün kimlikler",tag:"LOGO"},
+{start:15,end:20,title:"KURUMSAL KİMLİK",sub:"Kartvizit, renk ve tipografi",tag:"BRANDING"},
+{start:20,end:25,title:"SOSYAL MEDYA",sub:"Dikkat çeken görseller",tag:"SOSYAL"},
+{start:25,end:30,title:"REKLAM GÖRSELLERİ",sub:"Kampanyalarınızı duyurun",tag:"BANNER"},
+{start:30,end:35,title:"İÇERİK TASARIMI",sub:"Tutarlı ve etkili paylaşımlar",tag:"POST"},
+{start:35,end:40,title:"EXCEL ÇÖZÜMLERİ",sub:"İşletmenizi kolayca yönetin",tag:"EXCEL"},
+{start:40,end:45,title:"SATIŞ TAKİBİ",sub:"Rakamlarınız tek ekranda",tag:"SATIŞ"},
+{start:45,end:50,title:"GELİR VE GİDER",sub:"Verilerinizi net görün",tag:"FİNANS"},
+{start:50,end:55,title:"STOK YÖNETİMİ",sub:"Ürünlerinizi düzenli izleyin",tag:"STOK"},
+{start:55,end:60,title:"DASHBOARD",sub:"Görsel raporlar ve analizler",tag:"ANALİZ"},
+{start:60,end:65,title:"WEB TASARIM",sub:"Güçlü dijital vitrin",tag:"WEB"},
+{start:65,end:70,title:"MOBİL UYUMLU",sub:"Her ekranda kusursuz görünüm",tag:"MOBİL"},
+{start:70,end:75,title:"PORTFÖY",sub:"İşlerinizi profesyonel sergileyin",tag:"PORTFÖY"},
+{start:75,end:80,title:"MÜŞTERİ TALEPLERİ",sub:"İletişimi kolaylaştırın",tag:"İLETİŞİM"},
+{start:80,end:85,title:"VİDEO REKLAM",sub:"Markanızı hareketlendirin",tag:"VIDEO"},
+{start:85,end:90,title:"HAREKETLİ GRAFİK",sub:"Dinamik ve etkileyici içerikler",tag:"MOTION"},
+{start:90,end:95,title:"ÜRÜN TANITIMI",sub:"Mesajınızı güçlü aktarın",tag:"ÜRÜN"},
+{start:95,end:100,title:"GLOBAL TASARIM",sub:"Türkçe ve İngilizce çözümler",tag:"GLOBAL"},
+{start:100,end:105,title:"İHTİYACINIZA ÖZEL",sub:"Projenize uygun yaklaşım",tag:"ÖZEL"},
+{start:105,end:110,title:"BİRLİKTE ÜRETELİM",sub:"Fikirlerinizi hayata geçirelim",tag:"İŞ BİRLİĞİ"},
+{start:110,end:115,title:"BİZE ULAŞIN",sub:"mexaydigital@gmail.com",tag:"İLETİŞİM"},
+{start:115,end:120,title:"MEXAY DIGITAL",sub:"Fikirlerinize dijital bir görünüm",tag:"MEXAY"}
 ];
 function Ad(){const frame=useCurrentFrame();const {fps}=useVideoConfig();const t=frame/fps;const scene=scenes.find(s=>t>=s.start&&t<s.end)||scenes[6];const local=frame-scene.start*fps;const enter=spring({frame:local,fps,config:{damping:200}});const y=interpolate(enter,[0,1],[90,0]);const fade=interpolate(local,[0,18],[0,1],{extrapolateRight:'clamp'});const pulse=0.6+0.4*Math.sin(frame/28);return <AbsoluteFill style={{background:`radial-gradient(circle at ${50+15*Math.sin(frame/80)}% 30%,#223b6c,${navy} 70%)`,fontFamily:'Arial,sans-serif',color:'#F7F8FC',overflow:'hidden'}}>
 <AbsoluteFill style={{opacity:.18,backgroundImage:'linear-gradient(#FFFFFF22 1px,transparent 1px),linear-gradient(90deg,#FFFFFF22 1px,transparent 1px)',backgroundSize:'88px 88px',transform:`perspective(600px) rotateX(22deg) scale(1.4) translateY(${frame%90}px)`}}/>
